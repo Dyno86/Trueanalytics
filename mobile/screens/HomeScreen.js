@@ -144,7 +144,7 @@ export default function HomeScreen({ navigation }) {
         <Card.Content>
           <Title>About</Title>
           <Paragraph>
-            This application helps healthcare professionals analyze Truenat diagnostic data 
+            This application helps to analyze Truenat diagnostic data 
             for better decision making and resource allocation.
           </Paragraph>
           <Paragraph style={{ marginTop: 8, fontStyle: 'italic' }}>
