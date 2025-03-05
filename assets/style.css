@@ -1,0 +1,485 @@
+/* Main styling */
+.main-title {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    text-align: center;
+    color: #ffffff;
+    margin: 2rem auto;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    background: linear-gradient(135deg, #6c5ce7, #00a8ff);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(108, 92, 231, 0.2);
+    max-width: 90%;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dashboard-title {
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-bottom: 3px solid #6c5ce7;
+    text-align: center;
+}
+
+.designer-credit {
+    text-align: center;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    color: #666;
+    margin: 1rem 0 2rem;
+    font-style: italic;
+}
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 90vh;
+    padding: clamp(1rem, 3vw, 2rem);
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.1), rgba(0, 168, 255, 0.1));
+    z-index: -1;
+}
+
+.app-subtitle {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #4a5568;
+    text-align: center;
+    margin-top: -0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.app-description {
+    width: 100%;
+    max-width: 800px;
+    margin: 1rem auto 2rem;
+}
+
+.description-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #6c5ce7;
+}
+
+.description-card h3 {
+    color: #2d3748;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.1rem, 4vw, 1.3rem);
+}
+
+.description-card p {
+    color: #4a5568;
+    margin-bottom: 0;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    line-height: 1.5;
+}
+
+.upload-section {
+    background: linear-gradient(135deg, #6c5ce7, #00a8ff);
+    color: white;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 16px;
+    margin: 0.5rem auto 2rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.2);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(108, 92, 231, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0); }
+}
+
+.upload-section h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+
+.upload-section p {
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 1rem auto;
+}
+
+.feature-section h3 {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #6c5ce7;
+}
+
+.feature-card h4 {
+    color: #2d3748;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+}
+
+.feature-card p {
+    color: #4a5568;
+    margin-bottom: 0;
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+}
+
+/* Upload section styling */
+[data-testid="stFileUploader"] {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin: 0.5rem 0;
+    width: 100%;
+    max-width: 500px;
+    border: 2px dashed #6c5ce7;
+    transition: all 0.3s ease;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: #00a8ff;
+    transform: translateY(-2px);
+}
+
+[data-testid="stFileUploader"] section {
+    padding: 1rem !important;
+}
+
+/* Hide the "Drag and drop file here" text to keep our custom design */
+[data-testid="stFileUploader"] section > div > div:first-child {
+    color: transparent;
+    height: 40px;
+    position: relative;
+}
+
+[data-testid="stFileUploader"] section > div > div:first-child::before {
+    content: "Drag and drop your CSV file here";
+    position: absolute;
+    color: #6c5ce7;
+    font-weight: 500;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style the browse files button */
+[data-testid="stFileUploader"] button {
+    background: linear-gradient(135deg, #6c5ce7, #00a8ff) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    padding: 0.5rem 1.5rem !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+    margin-top: 0.5rem !important;
+}
+
+[data-testid="stFileUploader"] button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3) !important;
+}
+
+/* DataFrame styling */
+.dataframe {
+    font-family: 'Inter', sans-serif;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dataframe th {
+    background-color: #6c5ce7;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #5849c2;
+    white-space: nowrap;
+}
+
+.dataframe td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    min-width: 100px;
+}
+
+/* Metrics styling */
+[data-testid="stMetricValue"] {
+    font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+}
+
+/* App-wide styling for mobile appearance */
+.dashboard-title {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #6c5ce7, #00a8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0.5rem 0;
+}
+
+.stApp {
+    background-color: #f5f7fa;
+}
+
+/* Tab styling for app-like appearance */
+.stTabs [data-baseweb="tab"] {
+    font-weight: 600;
+    color: #4a5568;
+    background-color: transparent;
+    border-radius: 8px 8px 0 0;
+    transition: all 0.2s ease;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: white;
+    color: #6c5ce7;
+    border-bottom: 3px solid #6c5ce7;
+}
+
+/* Make buttons look like mobile app buttons */
+button {
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    transition: all 0.2s ease !important;
+}
+
+button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Filter section styling */
+[data-testid="stSelectbox"] {
+    background: white;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Table styling for mobile */
+[data-testid="stDataFrame"] {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+[data-testid="stDataFrame"] th {
+    background-color: #6c5ce7 !important;
+    color: white !important;
+}
+
+/* Visualization container */
+[data-testid="stPlotlyChart"] {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+
+[data-testid="stMetricLabel"] {
+    font-size: clamp(0.8rem, 3vw, 1rem) !important;
+    color: #666 !important;
+}
+
+/* Tab styling */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 1rem;
+}
+
+.stTabs [data-baseweb="tab"] {
+    height: auto;
+    min-height: 40px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: none;
+    color: #2c3e50;
+    font-weight: 500;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background-color: #eee;
+    transform: translateY(-2px);
+}
+
+.stTabs [data-baseweb="tab-panel"] {
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Button styling */
+.stButton > button {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #6c5ce7, #00a8ff);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, #5849c2, #0097e6);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Selectbox styling */
+.stSelectbox {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem auto;
+    padding: 0.5rem;
+}
+
+/* Chart container styling */
+[data-testid="chart-container"] {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin: 1rem 0;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .stTabs [data-baseweb="tab"] {
+        padding: 8px;
+        font-size: 14px;
+        flex: 1;
+        text-align: center;
+    }
+
+    .stTabs [data-baseweb="tab-panel"] {
+        padding: 1rem;
+    }
+
+    [data-testid="column"] {
+        width: 100% !important;
+        flex: 1 1 auto !important;
+        margin-bottom: 1rem;
+    }
+
+    .main-title {
+        font-size: clamp(1.2rem, 4vw, 2rem);
+        padding: 1rem;
+    }
+    
+    /* Mobile-friendly buttons */
+    button[kind="primary"] {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px !important;
+        font-size: 16px !important;
+        font-weight: bold !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    /* Mobile-friendly metrics */
+    [data-testid="metric-container"] {
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        margin-bottom: 10px !important;
+    }
+}
