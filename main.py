@@ -41,14 +41,14 @@ def main():
     if st.session_state.data is None:
         st.markdown("<div class='landing-container'>", unsafe_allow_html=True)
         st.markdown("<h1 class='main-title'>Truenat Dashboard</h1>", unsafe_allow_html=True)
-        st.markdown("<h2 class='app-subtitle'>Data Analysis Tool for Healthcare Professionals</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 class='app-subtitle'>Data Analysis Tool</h2>", unsafe_allow_html=True)
         
         # App description
         st.markdown("""
         <div class='app-description'>
             <div class='description-card'>
                 <h3>📊 Analyze Truenat Diagnostic Data</h3>
-                <p>Upload your CSV file to get detailed insights on Profile IDs, Lot Specific Analysis, Trend Analysis, and Weekly Reports.</p>
+                <p>Upload your data file to get detailed insights on Profile IDs, Lot Specific Analysis, Trend Analysis, and Weekly Reports.</p>
             </div>
         </div>
         """, unsafe_allow_html=True)
