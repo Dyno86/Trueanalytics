@@ -41,14 +41,15 @@ def main():
     if st.session_state.data is None:
         st.markdown("<div class='landing-container'>", unsafe_allow_html=True)
         st.markdown("<h1 class='main-title'>Truenat Dashboard</h1>", unsafe_allow_html=True)
-        st.markdown("<h2 class='app-subtitle'>Data Analysis Tool</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 class='app-subtitle'>Data Analysis Tool for Healthcare Professionals</h2>", unsafe_allow_html=True)
         
         # App description
         st.markdown("""
         <div class='app-description'>
             <div class='description-card'>
                 <h3>📊 Analyze Truenat Diagnostic Data</h3>
-                <p>Upload your data file to get detailed insights on Profile IDs, Lot Specific Analysis, Trend Analysis, and Weekly Reports.</p>
+                <p>Upload multiple CSV files to get consolidated insights on Profile IDs, Lot Specific Analysis, Trend Analysis, and Weekly Reports.</p>
+                <p><small>For comprehensive analysis, you can upload data from different time periods or different labs.</small></p>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -58,25 +59,29 @@ def main():
         <div class='upload-section'>
             <div class='upload-icon'>📤</div>
             <h3>Upload Your Data</h3>
-            <p>Please upload a CSV or XLSX file with Truenat diagnostic data</p>
+            <p>Please upload one or more CSV files with Truenat diagnostic data</p>
         </div>
         """, unsafe_allow_html=True)
         
-        uploaded_file = st.file_uploader("", type=['csv', 'xlsx'])
-        if uploaded_file:
+        uploaded_files = st.file_uploader("", type=['csv'], accept_multiple_files=True)
+        if uploaded_files:
             try:
                 with st.spinner("Processing data..."):
-                    data = process_csv_data(uploaded_file)
-                    st.session_state.data = data
+                    # Process each file and concatenate the data
+                    combined_data = None
+                    for uploaded_file in uploaded_files:
+                        st.text(f"Processing {uploaded_file.name}...")
+                        file_data = process_csv_data(uploaded_file)
+                        if combined_data is None:
+                            combined_data = file_data
+                        else:
+                            combined_data = pd.concat([combined_data, file_data], ignore_index=True)
+                    
+                    st.session_state.data = combined_data
+                    st.success(f"Successfully processed {len(uploaded_files)} files with a total of {len(combined_data)} records.")
                     st.rerun()  # Updated from experimental_rerun to rerun
             except ImportError as e:
-                if 'openpyxl' in str(e):
-                    st.error("Excel file support requires the openpyxl package.")
-                    with st.expander("Technical Details"):
-                        st.code("pip install openpyxl", language="bash")
-                        st.info("The application is being updated to support Excel files. Please try again in a moment.")
-                else:
-                    st.error(f"Missing dependency: {str(e)}")
+                st.error(f"Missing dependency: {str(e)}")
                 return
             except Exception as e:
                 st.error(f"Error processing file: {str(e)}")
@@ -118,6 +123,20 @@ def main():
     try:
         # Main dashboard after data is loaded
         st.markdown("<h1 class='dashboard-title'>Truenat Dashboard Data Analysis Tool</h1>", unsafe_allow_html=True)
+        
+        # Display file summary information
+        if 'data' in st.session_state and st.session_state.data is not None:
+            total_records = len(st.session_state.data)
+            date_range = f"{st.session_state.data['Test_date_time'].min().date()} to {st.session_state.data['Test_date_time'].max().date()}"
+            total_labs = st.session_state.data['Lab_name'].nunique()
+            
+            summary_cols = st.columns(3)
+            with summary_cols[0]:
+                st.metric("Total Records", f"{total_records:,}")
+            with summary_cols[1]:
+                st.metric("Date Range", date_range)
+            with summary_cols[2]:
+                st.metric("Number of Labs", total_labs)
 
         # Global filter
         profile_ids = sorted(st.session_state.data['Profile_id'].unique())

@@ -8,21 +8,10 @@ def process_csv_data(file):
     try:
         # Check file extension
         file_extension = file.name.split('.')[-1].lower()
+        print(f"Processing file: {file.name} (type: {file_extension})")
         
-        # Read file based on extension
-        if file_extension == 'xlsx':
-            try:
-                # Try to import openpyxl directly first
-                import openpyxl
-                df = pd.read_excel(file, engine='openpyxl')
-            except ImportError:
-                # If openpyxl is not available, try with default engine
-                try:
-                    df = pd.read_excel(file)
-                except Exception:
-                    raise ImportError("Missing optional dependency 'openpyxl'. The application has tried to install it automatically. Please try again or use a CSV file instead.")
-        else:  # Default to CSV
-            df = pd.read_csv(file)
+        # Read CSV file
+        df = pd.read_csv(file)
 
         # Ensure we have enough columns
         if len(df.columns) < 11:  # Need at least 11 columns (A through K)

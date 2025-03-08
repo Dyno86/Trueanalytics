@@ -39,8 +39,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 90vh;
-    padding: clamp(1rem, 3vw, 2rem);
+    min-height: auto;
+    padding: 0.5rem;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -72,13 +72,13 @@
 .app-description {
     width: 100%;
     max-width: 800px;
-    margin: 1rem auto 2rem;
+    margin: 0.5rem auto 1rem;
 }
 
 .description-card {
     background: white;
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 0.8rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     border-left: 5px solid #6c5ce7;
 }
@@ -136,25 +136,25 @@
 .feature-section {
     width: 100%;
     max-width: 800px;
-    margin: 1rem auto;
+    margin: 0.5rem auto;
 }
 
 .feature-section h3 {
     text-align: center;
     color: #2d3748;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
     font-size: clamp(1.2rem, 4vw, 1.5rem);
 }
 
 .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.6rem;
 }
 
 .feature-card {
     background: white;
-    padding: 1.5rem;
+    padding: 0.8rem;
     border-radius: 12px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
