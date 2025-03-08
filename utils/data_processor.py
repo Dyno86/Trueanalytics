@@ -11,10 +11,16 @@ def process_csv_data(file):
         
         # Read file based on extension
         if file_extension == 'xlsx':
-            # Check if openpyxl is available
-            if importlib.util.find_spec("openpyxl") is None:
-                raise ImportError("Missing optional dependency 'openpyxl'. Please install it using: pip install openpyxl")
-            df = pd.read_excel(file, engine='openpyxl')
+            try:
+                # Try to import openpyxl directly first
+                import openpyxl
+                df = pd.read_excel(file, engine='openpyxl')
+            except ImportError:
+                # If openpyxl is not available, try with default engine
+                try:
+                    df = pd.read_excel(file)
+                except Exception:
+                    raise ImportError("Missing optional dependency 'openpyxl'. The application has tried to install it automatically. Please try again or use a CSV file instead.")
         else:  # Default to CSV
             df = pd.read_csv(file)
 
