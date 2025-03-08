@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truenat Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            color: #2c3e50;
+        }
+        .header-gradient {
+            background: linear-gradient(135deg, #6c5ce7, #00a8ff);
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.2);
+        }
+        .header-gradient h1 {
+            margin-bottom: 0.3rem;
+            font-size: 1.8rem;
+        }
+        .header-gradient p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .button {
+            background: linear-gradient(135deg, #6c5ce7, #00a8ff);
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 160px;
+            max-width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(108, 92, 231, 0.2);
+        }
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #2c3e50;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #eee;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .feature-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #6c5ce7;
+        }
+        .feature-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            color: #2c3e50;
+        }
+        .feature-desc {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            line-height: 1.3;
+        }
+        .disclaimer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #95a5a6;
+            font-style: italic;
+            margin-top: 0.5rem;
+            padding: 0.8rem 0;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 480px) {
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .button {
+                width: 100%;
+                max-width: none;
+            }
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-gradient">
+        <h1>Truenat Dashboard</h1>
+        <p>Data Analysis Tool for Healthcare Professionals</p>
+    </div>
+
+    <div class="container">
+        <div class="buttons">
+            <a href="https://replit.dev:8501" class="button">Launch Streamlit App</a>
+            <a href="https://replit.dev:5001" class="button">Launch Mobile App</a>
+        </div>
+
+        <h2>Key Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">👤</div>
+                <div class="feature-title">Profile Analysis</div>
+                <div class="feature-desc">Insights on profile performance</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <div class="feature-title">Lot Analysis</div>
+                <div class="feature-desc">Track lot-specific metrics</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <div class="feature-title">Trend Analysis</div>
+                <div class="feature-desc">Monthly and weekly trends</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <div class="feature-title">Weekly Reports</div>
+                <div class="feature-desc">Lab performance data</div>
+            </div>
+        </div>
+
+        <p class="disclaimer">Designed by Subhadeep. S</p>
+    </div>
+</body>
+</html>

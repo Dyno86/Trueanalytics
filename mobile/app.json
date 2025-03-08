@@ -1,0 +1,50 @@
+
+{
+  "expo": {
+    "name": "Truenat Mobile Dashboard",
+    "slug": "truenat-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.truenat.dashboard",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "webpack",
+      "build": {
+        "babel": {
+          "include": [
+            "@expo/vector-icons",
+            "react-native-paper",
+            "react-native-safe-area-context",
+            "react-native-screens",
+            "react-native-reanimated"
+          ]
+        }
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "truenat-mobile-dashboard"
+      }
+    }
+  }
+}
